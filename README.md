@@ -1,5 +1,3 @@
-[![demo](src/assets/images/card.png)][1]
-
 ## ⭐  About
 CryptoFun started out from a few skills I wanted to learn and practice over my summer break from college, the state management library [Redux][2], [atomic design][3], and project management.
 
