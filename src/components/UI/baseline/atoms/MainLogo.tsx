@@ -34,7 +34,7 @@ const MainLogo: React.FC = () => {
         </linearGradient>
       </svg>
       <LandscapeRounded classes={{ root: classes.landscapeIcon }} />
-      <Typography variant="h5" noWrap>CryptoFun</Typography>
+      <Typography variant="h5" noWrap>Cryptoscapes</Typography>
     </Box>
   )
 }
