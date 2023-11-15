@@ -45,7 +45,7 @@
   },
   "scripts": {
     "start": "npm run config | npm run cli",
-    "cli": "cross-env PORT=3000 NODE_OPTIONS=--openssl-legacy-provider HOST=0.0.0.0 react-scripts start",
+    "cli": "cross-env PORT=3000 HOST=0.0.0.0 react-scripts --openssl-legacy-provider start",
     "config": "node ./src/setupTests.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
