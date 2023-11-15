@@ -2,6 +2,7 @@ import React from 'react';
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
 import GlobalLoadingProgress from './GlobalLoadingProgress';
+import ConnectButton from '../atoms/ConnectButton';
 
 const useStyles = makeStyles((theme: Theme) => ({
   sideUtils: {
@@ -21,6 +22,7 @@ const SideUtils: React.FC = () => {
   return (
     <Box className={classes.sideUtils}>
       <GlobalLoadingProgress />
+      <ConnectButton></ConnectButton>
     </Box>
   )
 }
