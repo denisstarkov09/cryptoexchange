@@ -4,6 +4,8 @@ import { Button, Typography, Tooltip } from '@material-ui/core';
 import TooltipBasicLayout from '../../../templates/TooltipBasicLayout';
 import Web3Modal from 'web3modal';
 import Web3 from 'web3';
+import { useAppDispatch } from '../../../../app/hooks';
+import { setAccount as setAccountAction} from '../../../../features/authSlice';
 
 const useStyles = makeStyles((theme: Theme) => ({
   connectButton: {
@@ -28,6 +30,7 @@ const ConnectButton: React.FC = () => {
     providerOptions: {} // Define wallet providers
   }));
   const [account, setAccount] = useState<string>("");
+  const dispatch = useAppDispatch();
   
   useEffect(() => {
     const loadAccount = async () => {
@@ -38,6 +41,9 @@ const ConnectButton: React.FC = () => {
           const accounts = await web3.eth.getAccounts();
           if (accounts.length > 0) {
             setAccount(accounts[0]);
+            dispatch(setAccountAction(accounts[0]))
+          }else{
+            dispatch(setAccountAction(""))
           }
         } catch (error) {
           console.error("Could not connect to wallet:", error);
