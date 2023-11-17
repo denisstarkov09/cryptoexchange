@@ -55,14 +55,19 @@ const CoinListTableHeader: React.FC<CoinListTableHeaderProps> = ({ order, orderB
     onRequestSort(event, idToSort(property));
   };
 
-  const sortToId: (property: CoinSortingKey) => keyof Coin = (sortingKey: CoinSortingKey) => {
+  const sortToId = (sortingKey: CoinSortingKey) => {
     switch (sortingKey) {
       case 'market_cap':
-        return 'marketCap'
+        return 'marketCap';
       case 'volume':
-        return 'totalVolume'
+        return 'totalVolume';
+      case 'price': 
+        return 'currentPrice';
+      default:
+        return 'marketCap';
     }
   };
+  
 
   const sortingId = sortToId(orderBy);
 
@@ -81,15 +86,16 @@ const CoinListTableHeader: React.FC<CoinListTableHeaderProps> = ({ order, orderB
             style={{ left: index === 0 ? 0 : index === 1 ? 67 : 'auto' }}
           >
             <TableSortLabel
-              disabled={headCell.id !== 'marketCap' && headCell.id !== 'totalVolume'}
-              active={sortingId === headCell.id}
-              direction={sortingId === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
-            >
-              <Typography variant="subtitle2" noWrap>
-                {headCell.label}
-              </Typography>
-            </TableSortLabel>
+  disabled={!['marketCap', 'totalVolume', 'currentPrice'].includes(headCell.id)} // Updated condition
+  active={sortingId === headCell.id}
+  direction={sortingId === headCell.id ? order : 'asc'}
+  onClick={createSortHandler(headCell.id)}
+>
+  <Typography variant="subtitle2" noWrap>
+    {headCell.label}
+  </Typography>
+</TableSortLabel>
+
           </TableCell>
         ))}
       </TableRow>
