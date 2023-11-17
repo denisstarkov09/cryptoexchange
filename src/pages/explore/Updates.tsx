@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchCompanies, selectCompanies } from '../../features/companiesSlice';
 import StatusUpdateListCard from '../../components/UI/updates/organisms/StatusUpdateListCard';
 import CompaniesCard from '../../components/UI/updates/organisms/CompaniesCard';
+import { useNeedAuthorization } from '../../common/hooks/useNeedAuthorizePopup';
 
 const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
@@ -33,6 +34,12 @@ const Updates: React.FC = () => {
       dispatch(fetchCompanies());
     }
   }, [dispatch, companies.value, companies.status]);
+
+  const {needAuthorizationComponent: needAuthorizationDialog, shouldShowNeedAuthorizationComponent: isNeedAuthorizationDialogOpened} = useNeedAuthorization();
+  if(isNeedAuthorizationDialogOpened){
+    return needAuthorizationDialog;
+  }
+
 
   return (
     <Grid
