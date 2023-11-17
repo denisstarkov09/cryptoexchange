@@ -1,6 +1,6 @@
 import { GenericState } from "..";
 
-export type CoinSortingKey = 'market_cap' | 'volume'
+export type CoinSortingKey = 'market_cap' | 'volume'| 'price'
 
 export type CoinSortOrder = 'asc' | 'desc'
 

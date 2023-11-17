@@ -14,6 +14,10 @@ const initialState: CoinDetailsState = {
 export const fetchCoinDetails = createAsyncThunk('coinDetails', async (coinId: string) => {
   const canceler = axios.CancelToken.source();
 
+  // // Prepend the CORS proxy URL to the API endpoint
+  // const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  // const apiUrl = API.coinDetails(coinId);
+  // const fullUrl = `${corsProxyUrl}${apiUrl}`;
   const response = await http.request({
     ...config('coinGecko'),
     url: API.coinDetails(coinId),
