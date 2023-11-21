@@ -1,12 +1,5 @@
 [![demo](src/assets/images/card.png)][1]
 
-## ⭐  About
-Cryptoscapes started out from a few skills I wanted to learn and practice over my summer break from college, the state management library [Redux][2], [atomic design][3], and project management.
-
-After tinkering with a bunch of cryptocurrency data with Redux, I eventually decided to create a simple UI to display this data, through the use of charts and graphs in a clean dashboard. Certain visualisations such as a heatmap displaying metric correlations between cryptocurrencies, also involve further manipulation of the data.
-
-The result was Cryptoscapes, an information dashboard that displays prices, trends, status updates, market snapshots and much more. 
-
 ## 🛠️  Key Technologies
 This project was deployed on AWS and built using:
 
