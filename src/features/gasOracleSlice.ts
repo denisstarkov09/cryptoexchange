@@ -36,6 +36,7 @@ export const fetchGasOracle = createAsyncThunk('gasOracle', async () => {
     const normalizedResponse = toCamelCase(response.data) as GasOracle;
 
     normalizedResponse.safeLow = roundDecimals(normalizedResponse.safeLow / 10, 0);
+    normalizedResponse.average = roundDecimals(normalizedResponse.average / 10, 0);
     normalizedResponse.fast = roundDecimals(normalizedResponse.fast / 10, 0);
     normalizedResponse.fastest = roundDecimals(normalizedResponse.fastest / 10, 0);
 
