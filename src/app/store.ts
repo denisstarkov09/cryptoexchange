@@ -1,5 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import coinsReducer from '../features/coinsSlice';
+import authReducer from '../features/authSlice';
 import coinListReducer from '../features/coinListSlice';
 import coinCategoriesReducer from '../features/coinCategoriesSlice';
 import coinMarketChartListReducer from '../features/coinMarketChartListSlice';
@@ -20,6 +21,7 @@ import appState from '../features/appStateSlice';
 
 export const store = configureStore({
   reducer: {
+    auth: authReducer,
     coins: coinsReducer,
     coinList: coinListReducer,
     coinCategories: coinCategoriesReducer,

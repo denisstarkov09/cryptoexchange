@@ -3,6 +3,7 @@ import { Theme, makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import { useParams } from 'react-router';
 import CoinDetailsCard from '../../components/UI/coins/organisms/CoinDetailsCard';
+import { useNeedAuthorization } from '../../common/hooks/useNeedAuthorizePopup';
 
 const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
@@ -17,6 +18,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 const CoinDetails: React.FC = () => {
   const classes = useStyles();
   const { coinId }: { coinId: string } = useParams();
+
+  const {needAuthorizationComponent, shouldShowNeedAuthorizationComponent} = useNeedAuthorization();
+
+  if(shouldShowNeedAuthorizationComponent){
+    return needAuthorizationComponent;
+  }
 
   return (
     <Grid

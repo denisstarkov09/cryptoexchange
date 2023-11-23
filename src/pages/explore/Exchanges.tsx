@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core';
 import ExchangeListCard from '../../components/UI/exchanges/organisms/ExchangeListCard';
 import { useScrollToTop } from '../../common/hooks/useScrollToTop';
 import { useWindowSize } from '../../common/hooks/useWindowSize';
+import { useNeedAuthorization } from '../../common/hooks/useNeedAuthorizePopup';
 
 const useStyles = makeStyles((theme: Theme) => ({
   wrapper: {
@@ -21,8 +22,15 @@ const Exchanges: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+
   const windowSize = useWindowSize();
   const { FloatingButton, target, top } = useScrollToTop();
+
+  const {needAuthorizationComponent, shouldShowNeedAuthorizationComponent} = useNeedAuthorization();
+
+  if(shouldShowNeedAuthorizationComponent){
+    return needAuthorizationComponent;
+  }
 
   return (
     <Grid
