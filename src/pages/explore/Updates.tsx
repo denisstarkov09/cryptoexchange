@@ -52,9 +52,6 @@ const Updates: React.FC = () => {
             <Grid item xs={12} style={{ height: `calc(50% - ${theme.spacing(3) / 2}px)` }}>
               <CompaniesCard coinId="bitcoin" />
             </Grid>
-            <Grid item xs={12} style={{ height: `calc(50% - ${theme.spacing(3) / 2}px)` }}>
-              <CompaniesCard coinId="ethereum" />
-            </Grid>
           </Grid>
         </Grid>
       </Hidden>

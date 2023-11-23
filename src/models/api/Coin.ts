@@ -48,8 +48,3 @@ export interface Coin {
   priceChangePercentage7DInCurrency: number;
 }
 
-export interface CoinListState extends GenericState<Coin[]> {
-  coinQueryParams: CoinQueryParams;
-  coinListTableColumns: (keyof Coin)[];
-  hasMore: boolean;
-}

@@ -33,11 +33,6 @@ export const coinGecko = {
     `/status_updates?per_page=${perPage}&page=${page}&category=${snakeCase(category)}`
 };
 
-export const ethGasStation = {
-  gasOracle:
-    `/json/ethgasAPI.json`
-};
-
 export const alternativeMe = {
   fearGreedIndex: (days: AvailableDayRanges) =>
     `/fng/?limit=${days}`
